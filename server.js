@@ -6,7 +6,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const multer = require('multer');
 const path = require('path');
-import {fileURLToPath} from ('url');
 const dotenv = require('dotenv');
 
 dotenv.config();
@@ -16,8 +15,6 @@ const PORT = process.env.PORT || 5000;
 
 const app = express();
 
-const __filename =fileURLToPath(import.meta.url);
-const __dirname =path.dirname(__filename);
 
 //bodyparser used for parsing request body
 
@@ -57,7 +54,7 @@ const addressSchema = new mongoose.Schema({
 		originalname: String,
 		createdAt: {type: Date, default: Date.now}
 	}
-	
+
 });
 const Address = mongoose.model('myaddress', addressSchema);
 
