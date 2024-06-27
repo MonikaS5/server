@@ -19,7 +19,13 @@ const app = express();
 //bodyparser used for parsing request body
 
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({
+	origin:'https://endearing-phoenix-50f5d4.netlify.app'
+}));
+app.use((req, res, next)=>{
+	res.set('Cache-control', 'no-store');
+	next();
+})
 
 // Multer setup for file uploads
 const storage = multer.diskStorage({
